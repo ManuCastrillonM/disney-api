@@ -1,0 +1,29 @@
+{
+  "name": "disney-api",
+  "version": "0.1.0",
+  "description": "The REST API based on Disney characters",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManuCastrillonM/disney-api.git"
+  },
+  "keywords": [
+    "disney",
+    "nodejs",
+    "express",
+    "rest"
+  ],
+  "author": "manucastrillonm, martineliasq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManuCastrillonM/disney-api/issues"
+  },
+  "homepage": "https://github.com/ManuCastrillonM/disney-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "standard": "^14.3.4"
+  }
+}
