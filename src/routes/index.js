@@ -1,7 +1,10 @@
 const router = require('express').Router()
+const characterService = require('../services/character')
 
-const query = require('../services/character')
+// /api/character
+router.route('/character').get(characterService.getAll)
 
-router.get('/character/', query.getById)
+// /api/character/:id
+router.route('/character/:id').get(characterService.getOneById)
 
 module.exports = router
