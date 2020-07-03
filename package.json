@@ -4,11 +4,12 @@
   "description": "The REST API based on Disney characters",
   "main": "src/app.js",
   "scripts": {
+    "start": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ManuCastrillonM/disney-api.git"
+    "url": "https://www.github.com/ManuCastrillonM/disney-api"
   },
   "keywords": [
     "disney",
@@ -16,12 +17,12 @@
     "express",
     "rest"
   ],
-  "author": "manucastrillonm, martineliasq",
-  "license": "ISC",
+  "author": "Manuela Castrillon <manu.cm43@gmail.com>",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/ManuCastrillonM/disney-api/issues"
   },
-  "homepage": "https://github.com/ManuCastrillonM/disney-api#readme",
+  "homepage": "https://github.com/ManuCastrillonM/disney-api",
   "devDependencies": {
     "nodemon": "^2.0.4",
     "standard": "^14.3.4"
