@@ -1,6 +1,6 @@
 const getByFilter = async (Col, req) => {
-console.log(req.query)
-console.log("as")
+  console.log(req.query)
+  console.log('as')
   const data = await Col.findOne({
     name: req.query.name
   })
@@ -8,8 +8,8 @@ console.log("as")
   if (!data) {
     return { error: message[`no${Col.modelName}`], status: 404 }
   }
-  console.log(data);
-  
+  console.log(data)
+
   return data
 }
 
