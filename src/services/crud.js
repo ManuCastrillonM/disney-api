@@ -1,5 +1,3 @@
-const { model } = require('../models/Character')
-
 const getAll = (model) => async (req, res) => {
   try {
     const items = await model.find().lean().exec()
