@@ -27,5 +27,5 @@ module.exports = (app) => {
   app.use(morgan('dev'))
   app.use(cors())
   app.use(json())
-  app.use('/api', router)
+  app.use('/', router)
 }
