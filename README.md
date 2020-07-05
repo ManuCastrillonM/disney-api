@@ -6,3 +6,9 @@
 <h1 align="center">
   Disney API
 </h1>
+
+Disney API is a restful API based on Disney characters. Using this API you can get information on Disney characters and movies.
+
+## 💫Getting started
+
+Check out the [documentation](https://www.disneyapi.dev)
