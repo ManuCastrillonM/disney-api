@@ -7,7 +7,6 @@ const config = require('./config')
 const router = require('../routes')
 
 module.exports = (app) => {
-  // connect to database
   mongoose.connect(config.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

@@ -1,6 +1,12 @@
 const getAll = (model) => async (req, res) => {
   try {
-    const items = await model.find().lean().exec()
+    const items = await model
+      .find()
+      .select(
+        'name firstAppareance createdBy species gender relatives imageUrl url'
+      )
+      .lean()
+      .exec()
 
     if (!items) {
       res.status(400).end()
@@ -14,7 +20,13 @@ const getAll = (model) => async (req, res) => {
 
 const getOneById = (model) => async (req, res) => {
   try {
-    const item = await model.findById(req.params.id).lean().exec()
+    const item = await model
+      .findById(req.params.id)
+      .select(
+        'name firstAppareance createdBy species gender relatives imageUrl url'
+      )
+      .lean()
+      .exec()
 
     if (!item) {
       res.status(400).end()

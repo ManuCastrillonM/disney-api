@@ -33,6 +33,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.19",
+    "mongoose-sequence": "^5.2.2",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
     "prettier": "^2.0.5"

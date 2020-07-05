@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 })
 
 router.get(endpoints.getAllCharacters, characterService.getAll)
-
 router.get(endpoints.getOneCharacter, characterService.getOneById)
 
 module.exports = router
