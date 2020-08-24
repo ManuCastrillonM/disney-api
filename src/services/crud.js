@@ -7,7 +7,17 @@ const getAll = (model) => async (req, res) => {
     const items = await model
       .find()
       .select(
-        'name firstAppareance createdBy species gender relatives imageUrl url'
+        `url 
+        name 
+        imageUrl 
+        films 
+        shortFilms 
+        tvShows 
+        videoGames 
+        alignment 
+        parkAttractions 
+        allies 
+        enemies`
       )
       .skip(skip)
       .limit(PAGE_SIZE)
@@ -44,7 +54,17 @@ const getOneById = (model) => async (req, res) => {
     const item = await model
       .findById(req.params.id)
       .select(
-        'name firstAppareance createdBy species gender relatives imageUrl url'
+        `url 
+        name 
+        imageUrl 
+        films 
+        shortFilms 
+        tvShows 
+        videoGames 
+        alignment 
+        parkAttractions 
+        allies 
+        enemies`
       )
       .lean()
       .exec()
