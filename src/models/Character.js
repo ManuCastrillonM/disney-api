@@ -10,6 +10,11 @@ const characterSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
+    sourceUrl: {
+      type: String,
+      required: true,
+      unique: true
+    },
     imageUrl: String,
     films: [String],
     shortFilms: [String],
