@@ -7,8 +7,7 @@ const characterSchema = new mongoose.Schema(
     url: String,
     name: {
       type: String,
-      required: true,
-      unique: true
+      required: true
     },
     sourceUrl: {
       type: String,
