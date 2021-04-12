@@ -24,18 +24,18 @@
   },
   "homepage": "https://github.com/ManuCastrillonM/disney-api",
   "devDependencies": {
-    "husky": "^4.2.5",
-    "nodemon": "^2.0.4",
-    "pretty-quick": "^2.0.1",
+    "husky": "^4.3.8",
+    "nodemon": "^2.0.7",
+    "pretty-quick": "^2.0.2",
     "standard": "^14.3.4"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.9.19",
-    "mongoose-sequence": "^5.2.2",
+    "mongoose": "^5.12.3",
+    "mongoose-sequence": "^5.3.1",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
-    "prettier": "^2.0.5"
+    "prettier": "^2.2.1"
   }
 }
