@@ -1,14 +1,9 @@
 {
-  "semi": false,
-  "parserOptions": {
-    "ecmaVersion": 6
-  },
-  "env": {
-    "es6": true
-  },
+  "semi": true,
   "singleQuote": true,
   "trailingComma": "none",
   "bracketSpacing": true,
   "arrowParens": "always",
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "tabWidth": 2
 }
