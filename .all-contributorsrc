@@ -1,0 +1,24 @@
+{
+  "projectName": "disney-api",
+  "projectOwner": "ManuCastrillonM",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [
+    {
+      "login": "ManuCastrillonM",
+      "name": "Manu Castrillon",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10585946?v=4",
+      "profile": "https://www.manuela.dev/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
