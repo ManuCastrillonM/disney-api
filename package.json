@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.js'"
+    "format": "prettier --write '**/*.js'",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
   },
   "homepage": "https://github.com/ManuCastrillonM/disney-api",
   "devDependencies": {
+    "all-contributors-cli": "^6.20.0",
     "husky": "^4.3.8",
     "nodemon": "^2.0.12",
     "pretty-quick": "^2.0.2",
