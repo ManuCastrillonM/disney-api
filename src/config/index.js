@@ -1,30 +1,30 @@
-const { json } = require('express')
-const mongoose = require('mongoose')
-const morgan = require('morgan')
-const cors = require('cors')
+const { json } = require('express');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+const cors = require('cors');
 
-const config = require('./config')
-const router = require('../routes')
+const config = require('./config');
+const router = require('../routes');
 
 module.exports = (app) => {
   mongoose.connect(config.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
-  })
+  });
 
-  mongoose.Promise = global.Promise
+  mongoose.Promise = global.Promise;
 
   mongoose.connection.on('error', (err) => {
-    console.error(`${err.message}`)
-  })
+    console.error(`${err.message}`);
+  });
 
   mongoose.connection.once('open', function () {
-    console.log('DB connection Successful!')
-  })
+    console.log('DB connection Successful!');
+  });
 
-  app.use(morgan('dev'))
-  app.use(cors())
-  app.use(json())
-  app.use('/', router)
-}
+  app.use(morgan('dev'));
+  app.use(cors());
+  app.use(json());
+  app.use('/', router);
+};
