@@ -1,4 +1,4 @@
-const crudController = require('./crud')
-const Character = require('../models/Character')
+const crudController = require('./crud');
+const Character = require('../models/Character');
 
-module.exports = crudController(Character)
+module.exports = crudController(Character);
