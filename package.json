@@ -25,17 +25,17 @@
   "homepage": "https://github.com/ManuCastrillonM/disney-api",
   "devDependencies": {
     "husky": "^4.3.8",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.12",
     "pretty-quick": "^2.0.2",
     "standard": "^14.3.4"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.12.3",
+    "mongoose": "^5.13.8",
     "mongoose-sequence": "^5.3.1",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
-    "prettier": "^2.2.1"
+    "prettier": "^2.3.2"
   }
 }
