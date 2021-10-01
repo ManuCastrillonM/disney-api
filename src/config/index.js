@@ -1,9 +1,11 @@
 const { json } = require('express');
+
+const cors = require('cors');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-const cors = require('cors');
 
 const config = require('./config');
+const graphqlServer = require('../graphql');
 const router = require('../routes');
 
 module.exports = (app) => {
@@ -27,4 +29,5 @@ module.exports = (app) => {
   app.use(cors());
   app.use(json());
   app.use('/', router);
+  app.use('/graphql', graphqlServer);
 };

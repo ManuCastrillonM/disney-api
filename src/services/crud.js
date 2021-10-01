@@ -10,9 +10,14 @@ const getAll = (model) => async (req, res) => {
       res.status(400).end();
     }
 
-    let itemsRes = {};
-    itemsRes.data = items;
-    itemsRes.count = items.length;
+    const totalDocuments = await model.estimatedDocumentCount();
+    const totalPages = Math.ceil(totalDocuments / PAGE_SIZE);
+
+    let itemsRes = {
+      data: items,
+      count: items.length,
+      totalPages: totalPages
+    };
 
     if (page > 1) {
       itemsRes.previousPage = `https://api.disneyapi.dev${
@@ -20,7 +25,7 @@ const getAll = (model) => async (req, res) => {
       }?page=${page - 1}`;
     }
 
-    if (items.length == PAGE_SIZE) {
+    if (page < totalPages) {
       itemsRes.nextPage = `https://api.disneyapi.dev${req.route.path}?page=${
         page + 1
       }`;
