@@ -1,7 +1,4 @@
 <p align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <a href="https://www.disneyapi.dev">
     <img src="./static/mickey-silhouette.svg" width="60" />
   </a>
@@ -10,9 +7,15 @@
   Disney API
 </h1>
 
-Disney API is a restful API based on Disney characters. Using this API you can get information on Disney characters and movies.
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-## 💫Getting started
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+Disney API is a restful and GraphQL API based on Disney characters. Using this API you can get information on Disney characters and movies.
+
+## 💫 Getting started
 
 Check out the [documentation](https://www.disneyapi.dev)
 
