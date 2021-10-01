@@ -3,8 +3,16 @@ const { buildSchema } = require('graphql');
 const schema = buildSchema(`
   type Query {
     character(_id: Int!): Character
-    characters: [Character]
+    characters(
+      page: Int,
+    ): CharacterPage
   },
+  type paginationInfo {
+    hasPreviousPage: Boolean!
+    hasNextPage: Boolean!
+    pageItemCount: Int!
+    totalPages: Int!
+  },  
   type Character {
     _id: Int
     url: String
@@ -19,6 +27,10 @@ const schema = buildSchema(`
     parkAttractions: [String]
     allies: [String]
     enemies: [String]
+  },
+  type CharacterPage {
+    items: [Character]
+    paginationInfo: paginationInfo
   }
 `);
 
