@@ -19,8 +19,6 @@ Disney API is a restful and GraphQL API based on Disney characters. Using this A
 
 Check out the [documentation](https://www.disneyapi.dev)
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
