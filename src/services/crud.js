@@ -4,7 +4,13 @@ const getAll = (model) => async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const skip = (page - 1) * PAGE_SIZE;
 
-    const items = await model.find().select().skip(skip).limit(PAGE_SIZE);
+    const items = await model
+      .find()
+      .select(
+        '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
+      )
+      .skip(skip)
+      .limit(PAGE_SIZE);
 
     if (!items) {
       res.status(400).end();
@@ -40,7 +46,13 @@ const getAll = (model) => async (req, res) => {
 
 const getOneById = (model) => async (req, res) => {
   try {
-    const item = await model.findById(req.params.id).select().lean().exec();
+    const item = await model
+      .findById(req.params.id)
+      .select(
+        '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
+      )
+      .lean()
+      .exec();
 
     if (!item) {
       res.status(400).end();
