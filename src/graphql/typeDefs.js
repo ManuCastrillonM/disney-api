@@ -3,6 +3,7 @@ const { buildSchema } = require('graphql');
 const schema = buildSchema(`
   type Query {
     character(_id: Int!): Character
+    characterByName(name: String!): Character
     characters(
       page: Int,
     ): CharacterPage

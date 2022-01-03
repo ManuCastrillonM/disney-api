@@ -29,10 +29,21 @@ const getCharacterList = async function (args) {
   };
 };
 
+// Get a character by name
+const getCharacterByName = async function (args) {
+  const item = await character
+    .findOne({ name: args.name })
+    .select()
+    .lean()
+    .exec();
+  return item;
+};
+
 // Root resolver
 const resolvers = {
   character: getCharacter,
-  characters: getCharacterList
+  characters: getCharacterList,
+  characterByName: getCharacterByName
 };
 
 module.exports = resolvers;
