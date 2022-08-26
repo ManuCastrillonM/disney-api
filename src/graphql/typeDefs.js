@@ -4,6 +4,7 @@ const schema = buildSchema(`
   type Query {
     character(_id: Int!): Character
     characterByName(name: String!): Character
+    searchCharacterByName(name: String!): [Character]
     characters(
       page: Int,
     ): CharacterPage

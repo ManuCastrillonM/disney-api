@@ -39,11 +39,21 @@ const getCharacterByName = async function (args) {
   return item;
 };
 
+const searchCharacterByName = async function (args) {
+  const item = await character
+    .find({ name: { $regex: args.name, $options: 'i' } })
+    .select()
+    .lean()
+    .exec();
+  return item;
+};
+
 // Root resolver
 const resolvers = {
   character: getCharacter,
   characters: getCharacterList,
-  characterByName: getCharacterByName
+  characterByName: getCharacterByName,
+  searchCharacterByName
 };
 
 module.exports = resolvers;
