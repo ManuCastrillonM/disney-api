@@ -3,14 +3,16 @@ const characterService = require('../services/character');
 
 const endpoints = {
   getAllCharacters: '/characters',
-  getOneCharacter: '/characters/:id'
+  filterCharacter: '/character',
+  getOneCharacterById: '/characters/:id'
 };
 
 router.get('/', (req, res) => {
   res.json(endpoints);
 });
 
+router.get(endpoints.filterCharacter, characterService.filterCharacter);
 router.get(endpoints.getAllCharacters, characterService.getAll);
-router.get(endpoints.getOneCharacter, characterService.getOneById);
+router.get(endpoints.getOneCharacterById, characterService.getOneById);
 
 module.exports = router;

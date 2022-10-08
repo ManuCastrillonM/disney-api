@@ -1,3 +1,5 @@
+const url = require('url');
+
 const getAll = (model) => async (req, res) => {
   try {
     const PAGE_SIZE = 50;
@@ -64,7 +66,32 @@ const getOneById = (model) => async (req, res) => {
   }
 };
 
+const filterCharacter = (model) => async (req, res) => {
+  const queryObject = url.parse(req.url, true).query;
+
+  try {
+    const item = await model
+      .find(queryObject)
+      .select(
+        '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
+      )
+      .lean()
+      .exec();
+
+    const itemRes = {
+      count: item.length,
+      data: item
+    };
+
+    res.status(200).json(itemRes);
+  } catch (e) {
+    console.log(e);
+    res.status(400).end();
+  }
+};
+
 const crudController = (model) => ({
+  filterCharacter: filterCharacter(model),
   getAll: getAll(model),
   getOneById: getOneById(model)
 });
