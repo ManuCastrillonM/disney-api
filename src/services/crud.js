@@ -67,11 +67,18 @@ const getOneById = (model) => async (req, res) => {
 };
 
 const filterCharacter = (model) => async (req, res) => {
-  const queryObject = url.parse(req.url, true).query;
+  const searchParams = req.query;
+  const searchParamsRegexQuery = Object.keys(searchParams).reduce(
+    (acc, key) => {
+      acc[key] = new RegExp(searchParams[key], 'i');
+      return acc;
+    },
+    {}
+  );
 
   try {
     const item = await model
-      .find(queryObject)
+      .find(searchParamsRegexQuery)
       .select(
         '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
       )
