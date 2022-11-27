@@ -13,7 +13,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Disney API is a restful and GraphQL API based on Disney characters. Using this API you can get information on Disney characters and movies.
+Disney API is a RESTful and GraphQL API based on Disney characters. Using this API you can get information on Disney characters.
 
 ## 💫 Getting started
 
