@@ -1,11 +1,16 @@
 const { buildSchema } = require('graphql');
 
 const schema = buildSchema(`
+  input CharacterFilterInput {
+    name: String
+    films: String
+  },
   type Query {
     character(_id: Int!): Character
     characterByName(name: String!): Character
     characters(
       page: Int,
+      filter: CharacterFilterInput,
     ): CharacterPage
   },
   type paginationInfo {

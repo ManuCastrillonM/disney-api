@@ -1,4 +1,5 @@
 const character = require('../models/character');
+const { searchParamsToRegexQuery } = require('../utils');
 
 // Return a single character (based on id)
 const getCharacter = async function (args) {
@@ -8,11 +9,17 @@ const getCharacter = async function (args) {
 
 // Return a list of characters
 const getCharacterList = async function (args) {
+  const { filter = {}, page = 1 } = args;
   const PAGE_SIZE = 50;
 
-  const page = args.page || 1;
+  const searchParamsRegexQuery = searchParamsToRegexQuery(filter);
+
   const skip = (page - 1) * PAGE_SIZE;
-  const items = await character.find().select().skip(skip).limit(PAGE_SIZE);
+  const items = await character
+    .find(searchParamsRegexQuery)
+    .select()
+    .skip(skip)
+    .limit(PAGE_SIZE);
 
   const totalDocuments = await character.estimatedDocumentCount();
   const totalPages = Math.ceil(totalDocuments / PAGE_SIZE);
