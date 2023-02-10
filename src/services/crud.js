@@ -1,4 +1,5 @@
 const url = require('url');
+const { searchParamsToRegexQuery } = require('../utils');
 
 const getAll = (model) => async (req, res) => {
   try {
@@ -67,14 +68,7 @@ const getOneById = (model) => async (req, res) => {
 };
 
 const filterCharacter = (model) => async (req, res) => {
-  const searchParams = req.query;
-  const searchParamsRegexQuery = Object.keys(searchParams).reduce(
-    (acc, key) => {
-      acc[key] = new RegExp(searchParams[key], 'i');
-      return acc;
-    },
-    {}
-  );
+  const searchParamsRegexQuery = searchParamsToRegexQuery(req.query);
 
   try {
     const item = await model
