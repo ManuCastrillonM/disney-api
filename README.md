@@ -9,7 +9,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -31,6 +31,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.manuela.dev/"><img src="https://avatars.githubusercontent.com/u/10585946?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Manu Castrillon</b></sub></a><br /><a href="https://github.com/ManuCastrillonM/disney-api/commits?author=ManuCastrillonM" title="Code">💻</a> <a href="https://github.com/ManuCastrillonM/disney-api/commits?author=ManuCastrillonM" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/MartinEliasQ"><img src="https://avatars.githubusercontent.com/u/10585976?v=4?s=100" width="100px;" alt=""/><br /><sub><b>MartinEliasQ</b></sub></a><br /><a href="https://github.com/ManuCastrillonM/disney-api/commits?author=MartinEliasQ" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/svargaslondono"><img src="https://avatars.githubusercontent.com/u/14265560?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sebastian Vargas L</b></sub></a><br /><a href="https://github.com/ManuCastrillonM/disney-api/commits?author=svargaslondono" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/nachocapodanno"><img src="https://avatars.githubusercontent.com/u/1399598?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nacho Capodanno</b></sub></a><br /><a href="https://github.com/ManuCastrillonM/disney-api/commits?author=nachocapodanno" title="Code">💻</a></td>
   </tr>
 </table>
 
