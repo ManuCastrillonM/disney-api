@@ -10,6 +10,7 @@ const schema = buildSchema(`
     characterByName(name: String!): Character
     characters(
       page: Int,
+      pageSize: Int,
       filter: CharacterFilterInput,
     ): CharacterPage
   },

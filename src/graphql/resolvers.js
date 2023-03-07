@@ -9,20 +9,18 @@ const getCharacter = async function (args) {
 
 // Return a list of characters
 const getCharacterList = async function (args) {
-  const { filter = {}, page = 1 } = args;
-  const PAGE_SIZE = 50;
+  const { filter = {}, page = 1, pageSize = 50 } = args;
 
   const searchParamsRegexQuery = searchParamsToRegexQuery(filter);
-
-  const skip = (page - 1) * PAGE_SIZE;
+  const skip = (page - 1) * pageSize;
   const items = await character
     .find(searchParamsRegexQuery)
     .select()
     .skip(skip)
-    .limit(PAGE_SIZE);
+    .limit(pageSize);
 
   const totalDocuments = await character.estimatedDocumentCount();
-  const totalPages = Math.ceil(totalDocuments / PAGE_SIZE);
+  const totalPages = Math.ceil(totalDocuments / pageSize);
   const paginationInfo = {
     hasPreviousPage: page > 1,
     hasNextPage: page < totalPages,

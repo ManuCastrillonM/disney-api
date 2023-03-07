@@ -1,11 +1,13 @@
 const url = require('url');
 const { searchParamsToRegexQuery } = require('../utils');
 
+const DEFAULT_PAGE_SIZE = 50;
+
 const getAll = (model) => async (req, res) => {
   try {
-    const PAGE_SIZE = 50;
-    const page = req.query.page ? parseInt(req.query.page) : 1;
-    const skip = (page - 1) * PAGE_SIZE;
+    const pageSize = parseInt(req.query.pageSize) || DEFAULT_PAGE_SIZE;
+    const page = parseInt(req.query.page) || 1;
+    const skip = (page - 1) * pageSize;
 
     const items = await model
       .find()
@@ -13,14 +15,14 @@ const getAll = (model) => async (req, res) => {
         '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
       )
       .skip(skip)
-      .limit(PAGE_SIZE);
+      .limit(pageSize);
 
     if (!items) {
       res.status(400).end();
     }
 
     const totalDocuments = await model.estimatedDocumentCount();
-    const totalPages = Math.ceil(totalDocuments / PAGE_SIZE);
+    const totalPages = Math.ceil(totalDocuments / pageSize);
 
     let itemsRes = {
       data: items,
