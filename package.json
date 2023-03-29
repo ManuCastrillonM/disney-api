@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha src/**/*.test.js",
     "format": "prettier --write '**/*.js'",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
@@ -28,7 +28,10 @@
   "homepage": "https://github.com/ManuCastrillonM/disney-api",
   "devDependencies": {
     "all-contributors-cli": "^6.20.0",
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "husky": "^4.3.8",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.13",
     "pretty-quick": "^2.0.2",
     "standard": "^14.3.4"
