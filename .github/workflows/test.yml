@@ -18,3 +18,5 @@ jobs:
           node-version: 14
       - run: npm ci
       - run: npm run test
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
