@@ -11,12 +11,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: npm ci
-      - run: npm run test
-        env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      - name: Install dependencies 🔨
+        run: npm ci
+      - name: Run tests 🧪
+        run: npm run test
