@@ -19,6 +19,11 @@ describe('[REST] Get all characters', () => {
     expect(res.body.data).to.be.an('array');
   });
 
+  it('should return the amount of items specified in the page size', async () => {
+    const res = await request('?pageSize=10');
+    expect(res.body.data.length).to.equal(10);
+  });
+
   it('should return the correct previous and next page url', async () => {
     const res = await request('?page=2');
     const prevPage = res.body.previousPage;
