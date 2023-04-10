@@ -2,20 +2,6 @@ const { searchParamsToRegexQuery } = require('../utils');
 
 const DEFAULT_PAGE_SIZE = 50;
 
-const getAll = (model) => async (req, res) => {
-  res.status(400).json({
-    error:
-      'This endpoint is deprecated. Please use /character instead, checkout the docs at https://www.disneyapi.dev for more info'
-  });
-};
-
-const getOneById = (model) => async (req, res) => {
-  res.status(400).json({
-    error:
-      'This endpoint is deprecated. Please use /character instead, checkout the docs at https://www.disneyapi.dev for more info'
-  });
-};
-
 async function getAllCharacters(model, pageSize, page) {
   const skip = (page - 1) * pageSize;
 
@@ -101,8 +87,6 @@ const getCharacter = (model) => async (req, res) => {
 };
 
 const crudController = (model) => ({
-  getAll: getAll(model),
-  getOneById: getOneById(model),
   getCharacter: getCharacter(model)
 });
 
