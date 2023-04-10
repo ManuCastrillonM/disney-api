@@ -6,7 +6,7 @@ const { expect } = chai;
 chai.use(chaiHttp);
 
 const request = async (args = '') =>
-  chai.request(server).get(`/characters/${args}`);
+  chai.request(server).get(`/character${args}`);
 
 describe('[REST] Get all characters', () => {
   it('should return 200 and an array of characters', async () => {
@@ -26,8 +26,8 @@ describe('[REST] Get all characters', () => {
 
   it('should return the correct previous and next page url', async () => {
     const res = await request('?page=2');
-    const prevPage = res.body.previousPage;
-    const nextPage = res.body.nextPage;
+    const prevPage = res.body.info.previousPage;
+    const nextPage = res.body.info.nextPage;
 
     expect(prevPage).to.include('?page=1');
     expect(nextPage).to.include('?page=3');
@@ -35,7 +35,7 @@ describe('[REST] Get all characters', () => {
 
   it('the characters array should have the same length of the count', async () => {
     const res = await request();
-    expect(res.body.data.length).to.equal(res.body.count);
+    expect(res.body.data.length).to.equal(res.body.info.count);
   });
 
   it('the characters array should have the correct properties', async () => {
@@ -53,5 +53,41 @@ describe('[REST] Get all characters', () => {
     expect(character).to.have.property('parkAttractions');
     expect(character).to.have.property('allies');
     expect(character).to.have.property('enemies');
+  });
+});
+
+describe('[REST] Get character by id', () => {
+  it('should return 200 and a character', async () => {
+    const res = await request('/20');
+
+    expect(res).to.have.status(200);
+
+    expect(res.body).to.be.an('object');
+    expect(res.body).to.have.property('data');
+    expect(res.body.data).to.be.an('object');
+  });
+
+  it('should return 400 if no character is found', async () => {
+    const res = await request('/1234567890');
+
+    expect(res).to.have.status(400);
+  });
+});
+
+describe('[REST] Get character by params', () => {
+  it('should return 200 and an array of characters', async () => {
+    const res = await request('?name=Luke');
+
+    expect(res).to.have.status(200);
+
+    expect(res.body).to.be.an('object');
+    expect(res.body).to.have.property('data');
+    expect(res.body.data).to.be.an('array');
+  });
+
+  it('should return 400 if no character is found', async () => {
+    const res = await request('?name=Luke Skywalker');
+
+    expect(res).to.have.status(400);
   });
 });
