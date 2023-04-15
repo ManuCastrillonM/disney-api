@@ -23,24 +23,6 @@ const charactersQuery = (props) => {
   }`;
 };
 
-const characterByNameQuery = (name) => {
-  return `{
-    characterByName(name: "${name}") {
-      _id
-      name
-    }
-  }`;
-};
-
-const characterQuery = (_id) => {
-  return `{
-    character(_id: ${_id}) {
-      _id
-      name
-    }
-  }`;
-};
-
 describe('[GRAPHQL] Get characters', () => {
   it('should return 200 and an array of characters', async () => {
     const res = await request(server)
@@ -59,7 +41,7 @@ describe('[GRAPHQL] Get characters', () => {
     expect(res.body.data.characters.items).to.be.an('array');
   });
 
-  it('sould return 50 characters if no page size is specified', async () => {
+  it('should return 50 characters if no page size is specified', async () => {
     const res = await request(server)
       .post('/graphql')
       .send({ query: charactersQuery() })
@@ -78,62 +60,36 @@ describe('[GRAPHQL] Get characters', () => {
   });
 });
 
-describe('[GRAPHQL] Get characters by name', () => {
-  it('should return 200 and a character', async () => {
+describe('[GRAPHQL] Get characters with filter', () => {
+  it('should return 200 and an array of characters', async () => {
     const res = await request(server)
       .post('/graphql')
       .send({
-        query: characterByNameQuery('Mickey Mouse')
+        query: charactersQuery({
+          filter: '{name: "Mickey Mouse"}'
+        })
       })
       .expect(200);
 
     expect(res.body).to.be.an('object');
     expect(res.body).to.have.property('data');
     expect(res.body.data).to.be.an('object');
-    expect(res.body.data).to.have.property('characterByName');
-    expect(res.body.data.characterByName).to.be.an('object');
-    expect(res.body.data.characterByName).to.have.property('_id');
-    expect(res.body.data.characterByName).to.have.property('name');
+    expect(res.body.data).to.have.property('characters');
+    expect(res.body.data.characters).to.be.an('object');
+    expect(res.body.data.characters).to.have.property('items');
+    expect(res.body.data.characters.items).to.be.an('array');
   });
 
-  it('should return 200 and a character with the correct name', async () => {
+  it('should return a character with the name "Mickey Mouse"', async () => {
     const res = await request(server)
       .post('/graphql')
       .send({
-        query: characterByNameQuery('Mickey Mouse')
+        query: charactersQuery({
+          filter: '{name: "Mickey Mouse"}'
+        })
       })
       .expect(200);
 
-    expect(res.body.data.characterByName.name).to.equal('Mickey Mouse');
-  });
-});
-
-describe('[GRAPHQL] Get character by id', () => {
-  it('should return 200 and a character', async () => {
-    const res = await request(server)
-      .post('/graphql')
-      .send({
-        query: characterQuery(30)
-      })
-      .expect(200);
-
-    expect(res.body).to.be.an('object');
-    expect(res.body).to.have.property('data');
-    expect(res.body.data).to.be.an('object');
-    expect(res.body.data).to.have.property('character');
-    expect(res.body.data.character).to.be.an('object');
-    expect(res.body.data.character).to.have.property('_id');
-    expect(res.body.data.character).to.have.property('name');
-  });
-
-  it('should return 200 and a character with the correct id', async () => {
-    const res = await request(server)
-      .post('/graphql')
-      .send({
-        query: characterQuery(30)
-      })
-      .expect(200);
-
-    expect(res.body.data.character._id).to.equal(30);
+    expect(res.body.data.characters.items[0].name).to.contain('Mickey Mouse');
   });
 });
