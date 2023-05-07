@@ -3,60 +3,17 @@ const { searchParamsToRegexQuery } = require('../utils');
 const DEFAULT_PAGE_SIZE = 50;
 
 const getAll = (model) => async (req, res) => {
-  try {
-    const reqUrl = req.protocol + '://' + req.get('host') + req.route.path;
-    const pageSize = parseInt(req.query.pageSize) || DEFAULT_PAGE_SIZE;
-    const page = parseInt(req.query.page) || 1;
-
-    const items = await getAllCharacters(model, pageSize, page);
-
-    if (!items) {
-      res.status(400).end();
-    }
-
-    const totalDocuments = await model.estimatedDocumentCount();
-    const totalPages = Math.ceil(totalDocuments / pageSize);
-
-    let itemsRes = {
-      data: items,
-      count: items.length,
-      totalPages: totalPages,
-      warning:
-        '🚨 IMPORTANT: THIS ENDPOINT IS GOING TO BE DEPRECATED ON APRIL 30TH. PLEASE USE /character INSTEAD 🚨'
-    };
-
-    if (page > 1) {
-      itemsRes.previousPage = `${reqUrl}?page=${page - 1}`;
-    }
-
-    if (page < totalPages) {
-      itemsRes.nextPage = `${reqUrl}?page=${page + 1}`;
-    }
-
-    res.status(200).json(itemsRes);
-  } catch (e) {
-    console.log(e);
-    res.status(400).end();
-  }
+  res.status(400).json({
+    error:
+      'This endpoint is deprecated. Please use /character instead, checkout the docs at https://www.disneyapi.dev for more info'
+  });
 };
 
 const getOneById = (model) => async (req, res) => {
-  try {
-    const item = await getCharacterById(model, req.params.id);
-
-    const itemRes = {
-      item,
-      warning:
-        '🚨 IMPORTANT: THIS ENDPOINT IS GOING TO BE DEPRECATED ON APRIL 30TH. PLEASE USE /character INSTEAD 🚨'
-    };
-    if (!item) {
-      res.status(400).end();
-    }
-    res.status(200).json(itemRes);
-  } catch (e) {
-    console.log(e);
-    res.status(400).end();
-  }
+  res.status(400).json({
+    error:
+      'This endpoint is deprecated. Please use /character instead, checkout the docs at https://www.disneyapi.dev for more info'
+  });
 };
 
 async function getAllCharacters(model, pageSize, page) {
