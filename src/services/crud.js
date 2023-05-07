@@ -57,7 +57,7 @@ async function getCharacterByParams(model, searchParams) {
 }
 
 const getCharacter = (model) => async (req, res) => {
-  const { filter = {}, page = 1, pageSize = DEFAULT_PAGE_SIZE } = req.query;
+  const { page = 1, pageSize = DEFAULT_PAGE_SIZE, ...filter } = req.query;
   const id = req.params.id;
 
   const pageInt = parseInt(page);

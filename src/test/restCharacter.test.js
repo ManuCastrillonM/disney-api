@@ -70,12 +70,13 @@ describe('[REST] Get character by id', () => {
 
 describe('[REST] Get character by params', () => {
   it('should return 200 and an array of characters', async () => {
-    const res = await request('?name=Luke');
+    const res = await request('?name=Mickey Mouse');
 
     expect(res).to.have.status(200);
 
     expect(res.body).to.be.an('object');
     expect(res.body).to.have.property('data');
     expect(res.body.data).to.be.an('array');
+    expect(res.body.data[0].name).to.contain('Mickey Mouse');
   });
 });
