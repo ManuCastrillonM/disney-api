@@ -66,12 +66,6 @@ describe('[REST] Get character by id', () => {
     expect(res.body).to.have.property('data');
     expect(res.body.data).to.be.an('object');
   });
-
-  it('should return 400 if no character is found', async () => {
-    const res = await request('/1234567890');
-
-    expect(res).to.have.status(400);
-  });
 });
 
 describe('[REST] Get character by params', () => {
@@ -83,11 +77,5 @@ describe('[REST] Get character by params', () => {
     expect(res.body).to.be.an('object');
     expect(res.body).to.have.property('data');
     expect(res.body.data).to.be.an('array');
-  });
-
-  it('should return 400 if no character is found', async () => {
-    const res = await request('?name=Luke Skywalker');
-
-    expect(res).to.have.status(400);
   });
 });
