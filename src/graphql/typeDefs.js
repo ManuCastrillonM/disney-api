@@ -2,12 +2,18 @@ const { buildSchema } = require('graphql');
 
 const schema = buildSchema(`
   input CharacterFilterInput {
+    id: Int
     name: String
     films: String
+    shortFilms: String
+    tvShows: String
+    videoGames: String
+    alignment: String
+    parkAttractions: String
+    allies: String
+    enemies: String
   },
   type Query {
-    character(_id: Int!): Character
-    characterByName(name: String!): Character
     characters(
       page: Int,
       pageSize: Int,
