@@ -2,46 +2,6 @@ const { searchParamsToRegexQuery } = require('../utils');
 
 const DEFAULT_PAGE_SIZE = 50;
 
-async function getAllCharacters(model, pageSize, page) {
-  const skip = (page - 1) * pageSize;
-
-  const characters = await model
-    .find()
-    .select(
-      '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
-    )
-    .skip(skip)
-    .limit(pageSize);
-
-  return characters;
-}
-
-async function getCharacterById(model, id) {
-  const characters = await model
-    .findById(id)
-    .select(
-      '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
-    )
-    .lean()
-    .exec();
-
-  return characters;
-}
-
-async function getCharacterByParams(model, searchParams) {
-  const searchParamsRegexQuery = searchParamsToRegexQuery(searchParams);
-
-  const characters = await model
-    .find(searchParamsRegexQuery)
-    .select(
-      '_id name imageUrl url films shortFilms tvShows videoGames parkAttractions allies enemies'
-    )
-    .lean()
-    .exec();
-
-  return characters;
-}
-
 const getCharacter = (model) => async (req, res) => {
   const { page = 1, pageSize = DEFAULT_PAGE_SIZE, ...filter } = req.query;
   const id = req.params.id;
