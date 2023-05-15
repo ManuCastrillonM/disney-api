@@ -79,4 +79,15 @@ describe('[REST] Get character by params', () => {
     expect(res.body.data).to.be.an('array');
     expect(res.body.data[0].name).to.contain('Mickey Mouse');
   });
+
+  it('should return and empty array if no character is found', async () => {
+    const res = await request('?name=asdasdasd');
+
+    expect(res).to.have.status(200);
+
+    expect(res.body).to.be.an('object');
+    expect(res.body).to.have.property('data');
+    expect(res.body.data).to.be.an('array');
+    expect(res.body.data.length).to.equal(0);
+  });
 });

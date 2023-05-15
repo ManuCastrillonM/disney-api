@@ -25,7 +25,7 @@ const getCharacter = (model) => async (req, res) => {
     model.countDocuments(searchQuery)
   ]);
 
-  info.count = items.length || 1;
+  info.count = items.length;
   info.totalPages = Math.ceil(totalDocumentsWithFilter / pageSize);
   info.previousPage =
     page > 1 ? `${reqUrl}?page=${pageInt - 1}&pageSize=${pageSize}` : null;
@@ -36,7 +36,7 @@ const getCharacter = (model) => async (req, res) => {
 
   const resJson = {
     info,
-    data: items.length > 1 ? items : items[0]
+    data: items.length > 1 ? items : items[0] || []
   };
 
   res.status(200).json(resJson);
