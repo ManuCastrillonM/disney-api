@@ -15,6 +15,14 @@
 
 Disney API is a RESTful and GraphQL API based on Disney characters. Using this API you can get information on Disney characters.
 
+> [!IMPORTANT]  
+> Hello friends 👋 
+> I developed this project in my free time, and the use of it is (and will continue to be) completely free. 
+> However, the infrastructure required to keep it running has a monthly cost, which I have been covering for the past three years (The cost is not very high, but it adds up over time).
+To keep the API available, I enabled a [**SUPPORT US**](https://disneyapi.dev/support-us/) option on the website where you can contribute to help cover the monthly expenses ✨ 
+The availability of the service will depend on the support we receive.
+> I appreciate your use of the API and hope that you can contribute to keeping it available 💖
+
 ## 💫 Getting started
 
 Check out the [documentation](https://www.disneyapi.dev)
