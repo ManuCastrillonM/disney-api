@@ -19,7 +19,8 @@
     "disney",
     "nodejs",
     "express",
-    "rest"
+    "rest",
+    "graphql"
   ],
   "author": "Manuela Castrillon <manu.cm43@gmail.com>",
   "license": "BSD-3-Clause",

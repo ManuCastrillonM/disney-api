@@ -4,7 +4,7 @@ const DEFAULT_PAGE_SIZE = 50;
 
 const getCharacter = (model) => async (req, res) => {
   const { page = 1, pageSize = DEFAULT_PAGE_SIZE, ...filter } = req.query;
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
 
   const pageInt = parseInt(page);
   const pageSizeInt = parseInt(pageSize);
