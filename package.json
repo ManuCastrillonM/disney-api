@@ -4,7 +4,8 @@
   "description": "The REST API based on Disney characters",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "start:dev": "nodemon src/server.js",
     "test": "mocha src/**/*.test.js --exit",
     "test:watch": "nodemon --exec 'npm test'",
     "format": "prettier --write '**/*.js'",
